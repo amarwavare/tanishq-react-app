@@ -62,11 +62,11 @@ function Home() {
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
   const dispatch = useDispatch();
 
-  const [selectedUserId, setSelectedUserId] = useState<number>(0);
+  // const [selectedUserId, setSelectedUserId] = useState<number>(0);
   const openInputDialog = useSelector((state: any) => state.homeReducer.openInputDialog);
   const userDataDialog = useSelector((state:any) => state.homeReducer.userDataDialog);
   const openUserDialog = useSelector((state:any) => state.homeReducer.openUserDialog);
-  // const selectedUserId = useSelector((state:any) => state.homeReducer.selectedUserId);
+  const selectedUserId = useSelector((state:any) => state.homeReducer.selectedUserId);
   const userData = useSelector((state:any) => state.homeReducer.userData); // Contains data fetched on mount
 
   useEffect(() => {
@@ -206,7 +206,7 @@ function Home() {
               console.log(data.id);
               dispatch(getIdAction({id:data.id-1}));
               dispatch(displayUserDataDialogAction({toDisplay:true}));
-              setSelectedUserId(data.id-1);
+              // setSelectedUserId(data.id-1);
               console.log(userData[selectedUserId]?.name);
               
             }}>Open</Button>
